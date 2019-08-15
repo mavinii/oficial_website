@@ -1,0 +1,157 @@
+  <% include partials/header %>
+
+  <!-- IMG 1450 x 750 or more BACKGROUND -->
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://images.unsplash.com/photo-1435527173128-983b87201f4d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80')">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand text-center">
+            <h2 class="title">Rotas</h2>
+            <h4 class="text-center">Accept one another, then, just as Christ accepted you, in order to bring praise to God. (Romans 15 v 7)</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTAINER -->
+  <div class="main main-raised"> <br>
+    <div class="container">
+        <div class="section text-center">
+            <!-- ICON CLIKS CENTER-->
+            <div class="row">
+                <div class="col-md-6 ml-auto mr-auto">
+                  <div class="profile-tabs">
+                    <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#sunday" role="tab" data-toggle="tab">
+                          <i class="material-icons">schedule</i> Sunday
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#flowers" role="tab" data-toggle="tab">
+                          <i class="material-icons">spa</i> Flowers
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#creche" role="tab" data-toggle="tab">
+                          <i class="material-icons">favorite</i> Crèche
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-content tab-space">
+                <!-- TABLE SUNDAY -->
+                <div class="tab-pane active text-center gallery" id="sunday">
+                  <div class="table-responsive-sm">
+                    <table class="table table-hover">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">Date</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Tel. No.</th>
+                          <th scope="col">E-mail</th>
+                        </tr>
+                      </thead>
+                      <!-- JS PARA PERCORER O ARRAY -->
+                      <% rotas.forEach(function(rota){ %>
+                      <tbody>
+                        <tr>
+                          <th><%= rota.date %></th>
+                          <td><%= rota.name %></td>
+                          <td><%= rota.tel  %></td>
+                          <td><%= rota.email %></td>
+                        </tr>
+                      </tbody>
+                      <% }); %>
+                      <!-- END LOOP forEach -->
+                    </table><!-- END TABLE SUNDAY -->
+                  </div><br>
+                  <!-- TEXTO VAI AQUI -->
+                </div>
+            <!-- TABLE FLOWERS -->
+            <div class="tab-pane text-center gallery" id="flowers">
+              <div class="table-responsive-sm">
+                <table class="table table-hover">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">Name</th>
+                    </tr>
+                  </thead>
+                  <!-- JS PARA PERCORER O FORM  FLOWERS-->
+                  <% rotas.forEach(function(flower){ %>
+                  <tbody>
+                    <tr>
+                      <th><%= flower.date %></th>
+                      <td><%= flower.name %></td>
+                    </tr>
+                  </tbody>
+                  <% }); %>
+                  <!-- END LOOP forEach -->
+                </table>
+              </div><!-- END TABLE FLOWERS -->
+            </div>
+                <!-- TABLE CRECHE -->
+                <div class="tab-pane text-center gallery" id="creche">
+                    <div class="table-responsive-sm">
+                        <table class="table table-hover"> 
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">14th Apr. (am)</th>
+                                    <td>Caitlin Nickels<br>Edelle Nickels</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">28th Apr. (am)</th>
+                                    <td>Peter Thompson <br>Buelah Allotey</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5th May (am)</th>
+                                    <td>Marian Stott<br>Hayley Mcgrath</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">12th May (am)</th>
+                                    <td>Caroline Mota<br>Terri Coleman Black</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">19th May (am)</th>
+                                    <td>Mary Borland<br>Rebecca Smith</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">26th May (am)</th>
+                                    <td>Caitlin Nickels<br>Edelle Nickels</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2nd Jun (am)</th>
+                                    <td>Erin Labuschagne<br>Barbara Lamb</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">9th Jun (am)</th>
+                                    <td>Hayley Mcgrath<br>Myrtle Thompson</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">26th Jun (am)</th>
+                                    <td>Marian Stott<br>Buelah Allotey</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">23rd Jun (am)</th>
+                                    <td>Barbara Lamb<br>Peter Thompson</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <!-- END TABLE CRECHE -->
+            </div><!-- END ICON CLIKS CENTER-->
+        </div>
+    </div>
+  </div> <!-- END CONTAINER -->
+
+  <% include partials/footer %>

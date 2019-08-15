@@ -1,0 +1,115 @@
+
+  <!--  FOOTER -->
+  <footer class="footer" data-background-color="black">
+    <div class="container">
+    <div class="text-center">
+        <div class="row justify-content-center">
+            <h3>Thank you for supporting us!</h3>
+        </div>
+        <a class="btn btn-primary btn-round" href="https://www.facebook.com/ARPCDublin/" target="_blank">
+            <i class="fa fa-facebook-square"></i> Facebook
+        </a>
+        <a class="btn btn-primary btn-round" href="https://www.youtube.com/channel/UCjGQiSVbMORNJb32flooC3g" target="_blank">
+            <i class="fa fa-youtube"></i> YouTube
+        </a>
+        <button type="button" class="btn btn-primary btn-round" data-toggle="popover" data-placement="right" title=""
+            data-content="ARDADMIN@GMAIL.COM" data-container="body" data-original-title=""
+            aria-describedby="popover674612">
+            <i class="fa fa-at"></i> Email
+            <div class="ripple-container"></div>
+        </button>
+    </div>
+    <div class="row justify-content-center">
+        <p class="float-left">&copy; 2019 - 18A Adelaide Road Presbyterian Church Dublin 2, Ireland - All rights reserved.</p>
+    </div>
+    </div>
+  </footer>
+  <!--   Core JS Files   -->
+  <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <script src="./assets/js/plugins/moment.min.js"></script>
+  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="./assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--	Plugin for Sharrre btn -->
+  <script src="./assets/js/plugins/jquery.sharrre.js" type="text/javascript"></script>
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/material-kit.js?v=2.0.4" type="text/javascript"></script>
+  <script>
+    $(document).ready(function() {
+      //init DateTimePickers
+      materialKit.initFormExtendedDatetimepickers();
+
+      // Sliders Init
+      materialKit.initSliders();
+    });
+
+
+    function scrollToDownload() {
+      if ($('.section-download').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.section-download').offset().top
+        }, 1000);
+      }
+    }
+
+
+    $(document).ready(function() {
+
+      $('#facebook').sharrre({
+        share: {
+          facebook: true
+        },
+        enableHover: false,
+        enableTracking: false,
+        enableCounter: false,
+        click: function(api, options) {
+          api.simulateClick();
+          api.openPopup('facebook');
+        },
+        template: '<i class="fab fa-facebook-f"></i> Facebook',
+        url: 'https://demos.creative-tim.com/material-kit/index.html'
+      });
+
+      $('#googlePlus').sharrre({
+        share: {
+          googlePlus: true
+        },
+        enableCounter: false,
+        enableHover: false,
+        enableTracking: true,
+        click: function(api, options) {
+          api.simulateClick();
+          api.openPopup('googlePlus');
+        },
+        template: '<i class="fab fa-google-plus"></i> Google',
+        url: 'https://demos.creative-tim.com/material-kit/index.html'
+      });
+
+      $('#twitter').sharrre({
+        share: {
+          twitter: true
+        },
+        enableHover: false,
+        enableTracking: false,
+        enableCounter: false,
+        buttons: {
+          twitter: {
+            via: 'CreativeTim'
+          }
+        },
+        click: function(api, options) {
+          api.simulateClick();
+          api.openPopup('twitter');
+        },
+        template: '<i class="fab fa-twitter"></i> Twitter',
+        url: 'https://demos.creative-tim.com/material-kit/index.html'
+      });
+
+    });
+  </script>
+</body>
+
+</html>
