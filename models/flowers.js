@@ -1,9 +1,12 @@
 const mongoose  = require('mongoose');
 
+const Schema = mongoose.Schema;
+
 // FLOWERS Schema SETUP
-var flowersSchema = new mongoose.Schema({
+const flowersSchema = new Schema({
     date: String,
     name: String
 });
 
-module.exports = mongoose.model("Flowers", flowersSchema);
+const Flowers = mongoose.model('Flowers', flowersSchema);
+module.exports = Flowers;

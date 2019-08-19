@@ -3,9 +3,9 @@ const bodyParser    = require('body-parser');
 const mongoose      = require('mongoose');
 const passport      = require('passport');
 const LocalStrategy = require('passport-local');
+const User          = require('./models/user');
 const Sunday        = require('./models/sunday');
 const Flowers       = require('./models/flowers');
-const User          = require('./models/user');
 
 var port = 3000 //port server
 
@@ -82,22 +82,34 @@ app.get('/painel', isLoggedIn, function(req, res){
     res.render("painel");
 });
 
-//ROTAS - SUNDAYS
+//ROTA - SUNDAYS
 app.get('/rota', function(req, res){
     //Get all SUNDAY from DB 
+    var model = {
+        rotas: [],
+        flowers: []
+    };
     Sunday.find({}, function(err, allSunday){
         if(err){
             console.log(err);
-        } else {
-            res.render("rota", {rotas:allSunday});
+        }  else {
+            model.rotas = allSunday;
         }
-    })
+    });
+    Flowers.find({}, function(err, allFlowers){
+        if(err){
+            console.log(err);
+        } else {
+            model.flowers = allFlowers;
+        }
+    });
+    res.render("rota", {model});
 });
 // get all infomation of input SUNDAY and add to MongoDB
 app.post('/rota', function(req, res){
-    var dateRoutes = req.body.date;
+    var dateRoutes  = req.body.date;
     var nameRoutes  = req.body.name;
-    var telRoutes = req.body.tel;
+    var telRoutes   = req.body.tel;
     var emailRoutes = req.body.email;
     var newSunday = {date: dateRoutes, name: nameRoutes, tel: telRoutes, email: emailRoutes}
     //Create a new SUNDAY and save to DB
@@ -109,24 +121,13 @@ app.post('/rota', function(req, res){
     });
 });
 
-//ROTAS - FLOWERS
-app.get('/flower', function(req, res){
-    //Get all FLOWERS from DB 
-    Flowers.find({}, function(err, allFlowers){
-        if(err){
-            console.log(err);
-        } else {
-            res.render("rota", {flowers:allFlowers});
-        }
-    })
-});
 // get all infomation of input FLOWERS and add to MongoDB
 app.post('/flower', function(req, res){
     var dateFlowers = req.body.date;
     var nameFlowers = req.body.name;
-    var newFlowers = {date: dateFlowers, name: nameFlowers}
+    var newFlowers  = {date: dateFlowers, name: nameFlowers}
     //Create a new FLOWERS and save to DB
-    Flowers.create(newFlowers, function(err, newlyFlowersCreated){
+    Flowers.save(newFlowers, function(err, newlyFlowersCreated){
         if (err){
             console.log(err)
         } else {
