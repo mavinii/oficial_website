@@ -12,7 +12,7 @@ var port = 3000 //port server
 //======================
 // CONNECTION TO DATA BASE
 //======================
-mongoose.connect('mongodb+srv://pgmarcosoliveira:KGZ5vhRVN!ZAiW!@cluster0-jqh2a.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://<password>:<password>@cluster0-jqh2a.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
